@@ -40,6 +40,7 @@ public class TeacherServiceImpl implements TeacherService{
                     .createdDate(LocalDateTime.now())
                     .usertype(USERTYPE.TEACHER)
                     .build();
+        profileRepository.save(profile);
 
         }
 

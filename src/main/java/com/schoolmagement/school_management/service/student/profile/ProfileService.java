@@ -17,7 +17,6 @@ public interface ProfileService {
 
     void createProfile(Profile profile) throws SchoolManagementException;
 
-    void updateProfile(UpdateProfileDto dto) throws SchoolManagementException;
 
     void updateProfile(UpdateProfileDto dto) throws SchoolManagementException;
 }
