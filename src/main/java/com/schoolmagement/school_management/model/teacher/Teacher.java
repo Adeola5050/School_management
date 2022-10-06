@@ -1,5 +1,4 @@
-package com.sc
-hoolmagement.school_management.model.teacher;
+package com.schoolmagement.school_management.model.teacher;
 import com.schoolmagement.school_management.model.baseUser.BaseUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
