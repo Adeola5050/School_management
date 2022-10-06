@@ -1,5 +1,6 @@
 package com.schoolmagement.school_management.model.teacher;
 import com.schoolmagement.school_management.model.baseUser.BaseUser;
+import com.schoolmagement.school_management.profile.Profile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,10 +12,9 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Teacher extends BaseUser {
-    @Id
-    private String id;
 
     private String createdDate;
     private String modifiedDate;
     private boolean isActive;
+    private Profile user;
 }

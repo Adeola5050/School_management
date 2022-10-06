@@ -3,8 +3,12 @@ package com.schoolmagement.school_management.service.teacher;
 
 import com.schoolmagement.school_management.data.dto.CreateTeacherDto;
 import com.schoolmagement.school_management.exception.SchoolManagementException;
+import com.schoolmagement.school_management.model.activity.ActionType;
+import com.schoolmagement.school_management.model.activity.ActivityLog;
 import com.schoolmagement.school_management.model.baseUser.USERTYPE;
+import com.schoolmagement.school_management.model.teacher.Teacher;
 import com.schoolmagement.school_management.profile.Profile;
+import com.schoolmagement.school_management.repository.activity.ActivityLogRepository;
 import com.schoolmagement.school_management.repository.profile.ProfileRepository;
 import com.schoolmagement.school_management.repository.teacher.TeacherRepository;
 import com.schoolmagement.school_management.service.student.profile.ProfileServiceImpl;
@@ -22,7 +26,7 @@ public class TeacherServiceImpl implements TeacherService{
     TeacherRepository teacherRepository;
 
     @Autowired
-    ProfileServiceImpl profileServiceImpl;
+    ActivityLogRepository activityLogRepository;
 
     @Autowired
     ProfileRepository profileRepository;
@@ -41,6 +45,23 @@ public class TeacherServiceImpl implements TeacherService{
                     .usertype(USERTYPE.TEACHER)
                     .build();
         profileRepository.save(profile);
+
+        Teacher teacher= Teacher.builder()
+                .createdDate(LocalDateTime.now().toString())
+                .modifiedDate(LocalDateTime.now().toString())
+                .isActive(true)
+                .user(profile)
+                .build();
+        teacherRepository.save(teacher);
+
+
+        ActivityLog log= ActivityLog.builder()
+                .createdDate(LocalDateTime.now().toString())
+                .modifiedDate(LocalDateTime.now().toString())
+                .actionType(ActionType.TEACHER_CREATED)
+                .build();
+
+        activityLogRepository.save(log);
 
         }
 
