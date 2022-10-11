@@ -1,6 +1,6 @@
 package com.schoolmagement.school_management.service.student.profile;
 
-import com.schoolmagement.school_management.data.dto.UpdateProfileDto;
+import com.schoolmagement.school_management.dto.UpdateProfileDto;
 import com.schoolmagement.school_management.exception.SchoolManagementException;
 import com.schoolmagement.school_management.profile.Profile;
 import com.schoolmagement.school_management.repository.profile.ProfileRepository;

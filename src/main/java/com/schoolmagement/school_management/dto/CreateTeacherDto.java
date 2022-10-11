@@ -1,4 +1,4 @@
-package com.schoolmagement.school_management.data.dto;
+package com.schoolmagement.school_management.dto;
 
 
 import lombok.AllArgsConstructor;

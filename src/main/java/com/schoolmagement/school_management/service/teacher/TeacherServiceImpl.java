@@ -1,7 +1,7 @@
 package com.schoolmagement.school_management.service.teacher;
 
 
-import com.schoolmagement.school_management.data.dto.CreateTeacherDto;
+import com.schoolmagement.school_management.dto.CreateTeacherDto;
 import com.schoolmagement.school_management.exception.SchoolManagementException;
 import com.schoolmagement.school_management.model.activity.ActionType;
 import com.schoolmagement.school_management.model.activity.ActivityLog;
@@ -11,7 +11,6 @@ import com.schoolmagement.school_management.profile.Profile;
 import com.schoolmagement.school_management.repository.activity.ActivityLogRepository;
 import com.schoolmagement.school_management.repository.profile.ProfileRepository;
 import com.schoolmagement.school_management.repository.teacher.TeacherRepository;
-import com.schoolmagement.school_management.service.student.profile.ProfileServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
