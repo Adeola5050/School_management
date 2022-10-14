@@ -11,6 +11,7 @@ import com.schoolmagement.school_management.profile.Profile;
 import com.schoolmagement.school_management.repository.activity.ActivityLogRepository;
 import com.schoolmagement.school_management.repository.profile.ProfileRepository;
 import com.schoolmagement.school_management.repository.teacher.TeacherRepository;
+import com.schoolmagement.school_management.service.student.profile.ProfileServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class TeacherServiceImpl implements TeacherService{
     ActivityLogRepository activityLogRepository;
 
     @Autowired
-    ProfileRepository profileRepository;
+    ProfileServiceImpl profileService;
     @Override
     public void createTeacherObject(CreateTeacherDto dto) throws SchoolManagementException {
         if(teacherRepository.existsByPhoneNumber(dto.getPhoneNumber())) {
@@ -43,7 +44,7 @@ public class TeacherServiceImpl implements TeacherService{
                     .createdDate(LocalDateTime.now())
                     .usertype(USERTYPE.TEACHER)
                     .build();
-        profileRepository.save(profile);
+        profileService.createProfile(profile);
 
         Teacher teacher= Teacher.builder()
                 .createdDate(LocalDateTime.now().toString())
