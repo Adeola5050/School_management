@@ -40,8 +40,8 @@ public class TeacherServiceImpl implements TeacherService{
                     .firstName(dto.getFirstName())
                     .lastName(dto.getLastName())
                     .phoneNumber(dto.getPhoneNumber())
-                    .modifiedDate(LocalDateTime.now())
-                    .createdDate(LocalDateTime.now())
+                    .modifiedDate(LocalDateTime.now().toString())
+                    .createdDate(LocalDateTime.now().toString())
                     .usertype(USERTYPE.TEACHER)
                     .build();
         profileService.createProfile(profile);

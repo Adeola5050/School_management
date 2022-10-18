@@ -23,8 +23,8 @@ public class Profile {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private LocalDateTime modifiedDate;
-    private LocalDateTime createdDate;
+    private String modifiedDate;
+    private String createdDate;
     private USERTYPE usertype;
 
 
