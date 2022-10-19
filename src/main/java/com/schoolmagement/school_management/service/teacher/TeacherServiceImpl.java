@@ -2,6 +2,7 @@ package com.schoolmagement.school_management.service.teacher;
 
 
 import com.schoolmagement.school_management.dto.CreateTeacherDto;
+import com.schoolmagement.school_management.dto.UpdateTeacherDto;
 import com.schoolmagement.school_management.exception.SchoolManagementException;
 import com.schoolmagement.school_management.model.activity.ActionType;
 import com.schoolmagement.school_management.model.activity.ActivityLog;
@@ -30,6 +31,11 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Autowired
     ProfileServiceImpl profileService;
+
+    @Autowired
+    ProfileRepository profileRepository;
+
+
     @Override
     public void createTeacherObject(CreateTeacherDto dto) throws SchoolManagementException {
         if(teacherRepository.existsByPhoneNumber(dto.getPhoneNumber())) {
@@ -65,6 +71,35 @@ public class TeacherServiceImpl implements TeacherService{
 
         }
 
+    @Override
+    public void updateTeacher(UpdateTeacherDto dto) throws SchoolManagementException {
+        Teacher teacher= findTeacher_byId(dto.getTeacherId());
+        Profile profile= teacher.getUser();
+        if(dto.getTeacherFirstName() != null){
+            profile.setFirstName(dto.getTeacherFirstName());
+        }
+        if(dto.getTeacherLastName() != null){
+            profile.setLastName(dto.getTeacherLastName());
+        }
+        if(dto.getPhoneNumber() !=null){
+            profile.setPhoneNumber(dto.getPhoneNumber());
+        }
+        profile.setModifiedDate(LocalDateTime.now().toString());
+        profileRepository.save(profile);
+        teacher.setModifiedDate(LocalDateTime.now().toString());
+        teacherRepository.save(teacher);
+
+
 
     }
+
+    @Override
+    public Teacher findTeacher_byId(String id) throws SchoolManagementException {
+        return teacherRepository.findById(id).orElseThrow(()->
+                new SchoolManagementException("Id doesn't match any of teacher in the database"));
+    }
+
+
+}
+
 

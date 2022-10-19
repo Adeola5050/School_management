@@ -1,4 +1,4 @@
-package com.schoolmagement.school_management.grade;
+package com.schoolmagement.school_management.model.grade;
 
 
 import com.schoolmagement.school_management.model.student.Student;
