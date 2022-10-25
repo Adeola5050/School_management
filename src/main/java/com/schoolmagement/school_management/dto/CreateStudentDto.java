@@ -17,6 +17,8 @@ public class CreateStudentDto {
     private String phoneNumber;
     private String studentClass;
     List<Subject> subjects;
+    private String dob;
+    private String email;
 
 
 }

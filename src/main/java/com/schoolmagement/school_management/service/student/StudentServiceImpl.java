@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,6 +51,12 @@ public class StudentServiceImpl implements StudentService{
 
         profileService.createProfile(profile);
         Student student= Student.builder()
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
+                .email(dto.getEmail())
+                .dob(dto.getDob())
+                .phoneNumber(dto.getPhoneNumber())
+                .subjects(new ArrayList<>())
                 .isActive(true)
                 .createdDate(LocalDateTime.now().toString())
                 .modifiedDate(LocalDateTime.now().toString())

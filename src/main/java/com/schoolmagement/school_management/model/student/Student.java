@@ -1,6 +1,5 @@
 package com.schoolmagement.school_management.model.student;
 
-import com.schoolmagement.school_management.model.baseUser.BaseUser;
 import com.schoolmagement.school_management.model.subject.Subject;
 import com.schoolmagement.school_management.profile.Profile;
 import lombok.AllArgsConstructor;
@@ -15,8 +14,13 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student extends BaseUser {
-
+public class Student {
+    private  String id;
+    private String firstName;
+    private String lastName;
+    private String dob;
+    private String phoneNumber;
+    private String email;
     private String createdDate;
     private String modifiedDate;
     private boolean isActive;

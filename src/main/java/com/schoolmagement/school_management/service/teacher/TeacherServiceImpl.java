@@ -53,6 +53,11 @@ public class TeacherServiceImpl implements TeacherService{
         profileService.createProfile(profile);
 
         Teacher teacher= Teacher.builder()
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
+                .email(dto.getEmail())
+                .phoneNumber(dto.getPhoneNumber())
+                .dob(dto.getDob())
                 .createdDate(LocalDateTime.now().toString())
                 .modifiedDate(LocalDateTime.now().toString())
                 .isActive(true)

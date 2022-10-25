@@ -2,6 +2,7 @@ package com.schoolmagement.school_management.controller.student;
 
 
 import com.schoolmagement.school_management.dto.CreateStudentDto;
+import com.schoolmagement.school_management.dto.UpdateStudentDto;
 import com.schoolmagement.school_management.exception.SchoolManagementException;
 import com.schoolmagement.school_management.response.ResponseDetails;
 import com.schoolmagement.school_management.service.student.StudentServiceImpl;
@@ -30,5 +31,14 @@ public class StudentController {
 
         ResponseDetails responseDetails= new ResponseDetails(LocalDateTime.now(), "Student created Successfully", "success");
         return new ResponseEntity<>(responseDetails, HttpStatus.CREATED);
+    }
+
+
+    @PostMapping("/update student")
+    public ResponseEntity<?> updateStudent(@RequestBody UpdateStudentDto dto) throws SchoolManagementException{
+        studentServiceImpl.updateStudent(dto);
+
+        ResponseDetails responseDetails= new ResponseDetails(LocalDateTime.now(),"Student updated successfully", "success");
+        return new ResponseEntity<>(responseDetails,HttpStatus.OK);
     }
 }
